@@ -1,10 +1,17 @@
 class Solution {
     public static int findGCD(int[] nums) {
         int k = nums.length;
-        Arrays.sort(nums);
-        int largest = nums[k-1];
-        int smallest = nums[0];
-        return gcd(smallest,largest);
+        int max = nums[0];
+        int min = nums[0];
+        for(int i=1;i<k;i++){
+            if(nums[i]>max){
+                max = nums[i];
+            }
+            if(nums[i]<min){
+                min = nums[i];
+            }
+        }
+        return gcd(min,max);
 
     }
     public static int gcd(int a , int b){
